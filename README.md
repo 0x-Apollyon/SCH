@@ -1,43 +1,38 @@
-#SCH
+SCH
 Secure Cryptographic Handshake Protocol
 
-### What is it ?
+What is it ?
 SCH is a concept/protocol to conduct a digital handshake between two users/devices using their RSA keys
 
-###Technologies
-- RSA 4096 (Assymetric encryption and signing)
-- Crystals KYBER (Assymetric encryption and signing)
-- AES 256 (Symmetric encryption)
-- Blowfish 256 (Symmetric encryption)
-- ChaCha20 (Symmetric encryption)
-- SHA3-512 (Hashing Algorithm)
-
-###How does it work ?
-
+Technologies
+RSA 4096 (Assymetric encryption and signing)
+Crystals KYBER (Assymetric encryption and signing)
+AES 256 (Symmetric encryption)
+Blowfish 256 (Symmetric encryption)
+ChaCha20 (Symmetric encryption)
+SHA3-512 (Hashing Algorithm)
+How does it work ?
 Lets assume two users, Alice and Bob, Now Alice wants to perform a SCH to verify Bobs identity.
 This involves the following steps
 
-- Alice sends a SCH request packet to Bob, which contains a 256 bit symkey.
-- Bob then responds with a SCH accept packet, which contains the same 256 bit symkey.
-- Alice sends a SCH challenge packet to Bob, which contains a challenge code.
-- Bob then responds with a SCH verification packet, which contains the verification code.
-
-###Security
-- The handshake can be carried out over an unsecure channel
-- The challenge code has over 2 ^1024 combinations so bruteforcing is theoretically and practically impossible
-- SCH is secure against post quantum attacks such as those which can be carried out due to Shor's algorithm or Grover's algorithm
-- SCH is secure against MITM attacks
-- SCH is secure against replay attacks
-- SCH is secure against relay attacks
-- SCH is IND-CCA2 compliant
-
-###SCH Packet Structures
-
+Alice sends a SCH request packet to Bob, which contains a 256 bit symkey.
+Bob then responds with a SCH accept packet, which contains the same 256 bit symkey.
+Alice sends a SCH challenge packet to Bob, which contains a challenge code.
+Bob then responds with a SCH verification packet, which contains the verification code.
+Security
+The handshake can be carried out over an unsecure channel
+The challenge code has over 2 ^1024 combinations so bruteforcing is theoretically and practically impossible
+SCH is secure against post quantum attacks such as those which can be carried out due to Shor’s algorithm or Grover’s algorithm
+SCH is secure against MITM attacks
+SCH is secure against replay attacks
+SCH is secure against relay attacks
+SCH is IND-CCA2 compliant
+SCH Packet Structures
 Request packet
 
 To: [UUID of reciever such as username/id/ip]
 From: [UUID of sender such as username/id/ip]
-Time: UNIX timestamp 
+Time: UNIX timestamp
 Sym Key: 256 bit symkey
 Integrity: SHA-512 Hash
 Sign: RSA Signature and KYBER Signature
@@ -46,11 +41,10 @@ Accept packet
 
 To: [UUID of reciever such as username/id/ip]
 From: [UUID of sender such as username/id/ip]
-Time: UNIX timestamp 
+Time: UNIX timestamp
 Sym Key: 256 bit symkey
 Integrity: SHA-512 Hash
 Sign: RSA Signature and KYBER Signature
-
 
 These both packets are encrypted with the recievers RSA and KYBER key
 
@@ -66,26 +60,24 @@ Challenge packet
 
 To: [RSA-Public-Key-Reciever] [KYBER-Public-Key-Reciever] [UUID of reciever such as username/id/ip]
 From: [RSA-Public-Key-Sender] [KYBER-Public-Key-Sender][UUID of sender such as username/id/ip]
-Time: UNIX timestamp 
+Time: UNIX timestamp
 Challenge code: The challenge code encrypted with RSA and Kyber
 Challenge Nonce: Nonce
 Integrity: SHA-512 Hash
 Sign: RSA Signature and KYBER Signature
 
-
 Verification packet:
 
 To: [RSA-Public-Key-Reciever] [KYBER-Public-Key-Reciever] [UUID of reciever such as username/id/ip]
 From: [RSA-Public-Key-Sender] [KYBER-Public-Key-Sender] [UUID of sender such as username/id/ip]
-Time: UNIX timestamp 
+Time: UNIX timestamp
 Challenge code: The challenge code decrypted
 Challenge Nonce: Nonce
 Integrity: SHA-512 Hash
 Sign: RSA Signature and KYBER Signature
 
-
 These both packets are encrypted with the 256 bit symkey
 
-### Example of verification
-
+Example of verification
 TODO
+
