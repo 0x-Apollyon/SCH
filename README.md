@@ -1,10 +1,10 @@
-#SCH
+# SCH
 Secure Cryptographic Handshake Protocol
 
 ### What is it ?
 SCH is a concept/protocol to conduct a digital handshake between two users/devices using their RSA keys
 
-###Technologies
+### Technologies
 - RSA 4096 (Assymetric encryption and signing)
 - Crystals KYBER (Assymetric encryption and signing)
 - AES 256 (Symmetric encryption)
@@ -12,7 +12,7 @@ SCH is a concept/protocol to conduct a digital handshake between two users/devic
 - ChaCha20 (Symmetric encryption)
 - SHA3-512 (Hashing Algorithm)
 
-###How does it work ?
+### How does it work ?
 
 Lets assume two users, Alice and Bob, Now Alice wants to perform a SCH to verify Bobs identity.
 This involves the following steps
@@ -22,7 +22,7 @@ This involves the following steps
 - Alice sends a SCH challenge packet to Bob, which contains a challenge code.
 - Bob then responds with a SCH verification packet, which contains the verification code.
 
-###Security
+### Security
 - The handshake can be carried out over an unsecure channel
 - The challenge code has over 2 ^1024 combinations so bruteforcing is theoretically and practically impossible
 - SCH is secure against post quantum attacks such as those which can be carried out due to Shor's algorithm or Grover's algorithm
@@ -31,7 +31,7 @@ This involves the following steps
 - SCH is secure against relay attacks
 - SCH is IND-CCA2 compliant
 
-###SCH Packet Structures
+### SCH Packet Structures
 
 Request packet
 
