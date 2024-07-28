@@ -84,7 +84,10 @@ Integrity: SHA-512 Hash<br>
 Sign: RSA Signature and KYBER Signature<br> <br>
 
 
-These both packets are encrypted with the 256 bit symkey <br>
+These both packets are encrypted with the 256 bit symkey using a three layer process <br>
+
+Cleartext --> Encrypted with AES (Twice) --> Encrypted with Blowfish (Twice) --> Encrypted with ChaCha20 (Twice) --> Final output <br>
+This makes it so that if a vulnerability is discovered in one of these algorithm in the future, the SCH protocol's safety is not impacted at all <br>
 
 ### Example of verification <br>
 
