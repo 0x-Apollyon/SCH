@@ -4,6 +4,8 @@ Secure Cryptographic Handshake Protocol
 ### What is it ?
 SCH is a concept/protocol to conduct a digital handshake between two users/devices using their RSA keys
 
+### YOU MUST HAVE THE OTHER PERSON'S/DEVICE'S PUBLIC KEY TO VERIFY THEIR IDENTITY
+
 ### Technologies
 - RSA 4096 (Assymetric encryption and signing)
 - Crystals KYBER (Assymetric encryption and signing)
